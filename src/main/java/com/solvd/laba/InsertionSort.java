@@ -1,26 +1,26 @@
 import java.util.Arrays;
 
 public class InsertionSort { 
-    void sort(int[] arr){
-        int n = arr.length;
+    void sort(int[] array){
+        int n = array.length;
         for (int i = 1; i < n; i++) {
-            int key = arr[i];
+            int key = array[i];
             int j = i-1;
 
-            while (j>=0 && arr[j]> key) {
-                arr[j + 1] = arr[j];
+            while (j>=0 && array[j]> key) {
+                array[j + 1] = array[j];
                 j = j-1;
             }
-            arr[j + 1] = key;
+            array[j + 1] = key;
         }
     }
 
     public static void main(String[] args) {
-        int[] arr = {8,57,6,53,22,0,9,1};
+        int[] array = {8,57,6,53,22,0,9,1};
 
-        InsertionSort k = new InsertionSort();
-        k.sort(arr);
-        System.out.println(Arrays.toString(arr));
+        InsertionSort insertionSorting = new InsertionSort();
+        insertionSorting.sort(array);
+        System.out.println(Arrays.toString(array));
         
     }
 }
