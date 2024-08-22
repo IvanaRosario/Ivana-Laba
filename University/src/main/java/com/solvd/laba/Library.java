@@ -5,7 +5,7 @@ import java.util.*;
 public class Library {
     private List<Staff> staff = new ArrayList<>();
     private Book book;
-    HashMap<Book, Student_Z> bookHolder = new HashMap<>();
+    HashMap<Book, StudentZ> bookHolder = new HashMap<>();
 
     public Library(List<Staff> staff) {
         this.staff = staff;
@@ -15,7 +15,7 @@ public class Library {
         this.book = book;
     }
 
-    public void lendBook(Student_Z student) {
+    public void lendBook(StudentZ student) {
         if (!(book.isBorrowed())) {
             bookHolder.put(book, student);
             book.setBorrowed(true);

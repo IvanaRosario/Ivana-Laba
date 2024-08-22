@@ -1,6 +1,6 @@
 package main.java.com.solvd.laba;
 
-abstract public class Person {
+abstract public class Person implements IIdentifiable {
     protected String name;
     protected int age;
     protected String personID;
@@ -35,11 +35,7 @@ abstract public class Person {
         return personID;
     }
 
-    public void setPersonID(String personID) {
-        this.personID = personID;
-    }
-
-    abstract public void academicActivity(Subject_Z subject);
+    abstract public void academicActivity(SubjectZ subject);
 
 }
 
