@@ -1,5 +1,7 @@
 package main.java.com.solvd.laba;
 
+import main.java.com.solvd.laba.interfaces.IIdentifiable;
+
 abstract public class Person implements IIdentifiable {
     protected String name;
     protected int age;

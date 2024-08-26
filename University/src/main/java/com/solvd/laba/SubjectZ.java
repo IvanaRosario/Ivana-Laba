@@ -1,17 +1,19 @@
 package main.java.com.solvd.laba;
 
+import main.java.com.solvd.laba.exceptions.ProfessorIsAlreadyHiredException;
+import main.java.com.solvd.laba.interfaces.IEnrollable;
+
 import java.util.*;
 
-public class SubjectZ implements IEnrollable{
+public class SubjectZ implements IEnrollable {
     private String subjectName;
     private ProfessorZ professor;
     private List<StudentZ> enrolledStudents = new ArrayList<>();
     private HashMap<StudentZ, Double> studentsGrades = new HashMap<StudentZ, Double>();
     private static int subjectCount = 0;
 
-    public SubjectZ(ProfessorZ professor) {
+    public void assignTeacher(ProfessorZ professor) throws ProfessorIsAlreadyHiredException {
         this.professor = professor;
-        subjectCount++;
     }
 
     public SubjectZ(String subjectName) {
@@ -19,12 +21,21 @@ public class SubjectZ implements IEnrollable{
         subjectCount++;
     }
 
+    public static int getSubjectCount() {
+        return subjectCount;
+    }
+
     public void assignGrades(HashMap<StudentZ, Double> studentsGrades) {
             this.studentsGrades = studentsGrades;
     }
+
     @Override
     public void enrollInSubject(StudentZ student) {
         this.enrolledStudents.add(student);
+    }
+
+    public void setStudentGrade(StudentZ student, Double grade) {
+        this.studentsGrades.put(student, grade);
     }
 
     public void showStudents() {
@@ -91,9 +102,6 @@ public class SubjectZ implements IEnrollable{
         this.enrolledStudents = enrolledStudents;
     }
 
-    public void setStudentGrade(StudentZ student, Double grade) {
-        this.studentsGrades.put(student, grade);
-    }
 
 
 }

@@ -1,49 +1,40 @@
 package main.java.com.solvd.laba;
 
+import main.java.com.solvd.laba.service.StudentManager;
+import main.java.com.solvd.laba.service.TeacherManager;
 import java.util.*;
 
 public class College {
     private final String name;
-    private Set<Degree> degrees = new HashSet<>();
-    private Set<ProfessorZ> professors = new HashSet<>();
-    private Set<StudentZ> students = new HashSet<>();
     private Set<Staff> staff = new HashSet<>();
+    private static TeacherManager teacherManager;
+    private static StudentManager studentManager;
 
-    public College(String name, Set<Degree> degrees, Set<ProfessorZ> professors, Set<StudentZ> students, Set<Staff> staff) {
+    static {
+        teacherManager = new TeacherManager();
+        studentManager = new StudentManager();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public static TeacherManager getTeacherManager() {
+        return teacherManager;
+    }
+
+    public static StudentManager getStudentManager() {
+        return studentManager;
+    }
+
+    public College(String name, Set<Staff> staff) {
         this.name = name;
-        this.degrees = degrees;
-        this.professors = professors;
-        this.students = students;
         this.staff = staff;
     }
 
     @Override
     public String toString() {
         return "College name: " + name;
-    }
-
-    public Set<Degree> getDegrees() {
-        return degrees;
-    }
-
-    public void setDegrees(Set<Degree> degrees) {
-        this.degrees = degrees;
-    }
-
-    public Set<ProfessorZ> getProfessors() {
-        return professors;
-    }
-
-    public void setProfessors(Set<ProfessorZ> professors) {
-        this.professors = professors;
-    }
-
-    public Set<StudentZ> getStudents() {
-        return students;
-    }
-
-    public void setStudents(Set<StudentZ> students) {
-        this.students = students;
     }
 
     public Set<Staff> getStaff() {

@@ -1,8 +1,16 @@
 package main.java.com.solvd.laba;
 
+import main.java.com.solvd.laba.exceptions.GradeOutOfBoundsException;
+import main.java.com.solvd.laba.interfaces.IAttendable;
+import main.java.com.solvd.laba.interfaces.IGradable;
+import main.java.com.solvd.laba.interfaces.IPayable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.util.*;
 
 public class ProfessorZ extends Person implements IPayable, IAttendable, IGradable {
+    private static final Logger LOGGER = LogManager.getLogger(ProfessorZ.class);
+
     private String department;
     private SubjectZ subject;
     private int attendanceCount = 0;
@@ -26,6 +34,10 @@ public class ProfessorZ extends Person implements IPayable, IAttendable, IGradab
         return department;
     }
 
+    public static int getProfCount() {
+        return profCount;
+    }
+
     public void setDepartment(String department) {
         this.department = department;
     }
@@ -39,21 +51,18 @@ public class ProfessorZ extends Person implements IPayable, IAttendable, IGradab
     }
 
     public static String getDepartmentHead(String department) {
-        switch (department) {
-            case "Calculus I":
-                return "Dr. John Doe";
-            case "Mathematics":
-                return "Dr. Jane Smith";
-            default:
-                return "Unknown Department";
-        }
+        return switch (department) {
+            case "Calculus I" -> "Dr. John Doe";
+            case "Mathematics" -> "Dr. Jane Smith";
+            default -> "Unknown Department";
+        };
     }
 
     @Override
     public String toString() {
-        return "ProfessorZ: " + getName() +
-                ", specialization:" + department + '\'' +
-                ", subject: " + subject;
+        return "Professor: " + getName() +
+                ", specialization: " + department +
+                ", subject: " + subject + ", ID: " + getPersonID();
     }
 
     @Override
@@ -61,11 +70,10 @@ public class ProfessorZ extends Person implements IPayable, IAttendable, IGradab
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         ProfessorZ professor = (ProfessorZ) obj;
-        return
-                Objects.equals(getPersonID(), professor.getPersonID()) &&
-                Objects.equals(getName(), professor.getName()) &&
-                Objects.equals(getDepartment(), professor.getDepartment()) &&
-                Objects.equals(getSubject(), professor.getSubject());
+        return Objects.equals(getPersonID(), professor.getPersonID()) &&
+               Objects.equals(getName(), professor.getName()) &&
+               Objects.equals(getDepartment(), professor.getDepartment()) &&
+               Objects.equals(getSubject(), professor.getSubject());
     }
 
     @Override
@@ -86,7 +94,6 @@ public class ProfessorZ extends Person implements IPayable, IAttendable, IGradab
     @Override
     public final double calculateSalary() {
         int hourlyRate = 50;
-
         return baseSalary + hourlyRate*attendanceCount*lectureDuration;
     }
 
@@ -105,10 +112,23 @@ public class ProfessorZ extends Person implements IPayable, IAttendable, IGradab
         return attendanceCount;
     }
 
-    @Override
-    public void assignGrade(StudentZ student, double score) {
+    private void assignGradeToStudent(StudentZ student, double score) throws GradeOutOfBoundsException {
+        if(score<0 || score>10) {
+            throw new GradeOutOfBoundsException("The grade assigned to the student " + student.getName() + " is not correct.");
+        }
         student.setSubjectGrade(subject, score);
         subject.setStudentGrade(student, score);
     }
+
+    @Override
+    public void assignGrade(StudentZ student, double score) {
+            try{
+                assignGradeToStudent(student,score);
+            } catch (GradeOutOfBoundsException e){
+                LOGGER.error(e.getMessage());
+            }
+
+    }
+
 
 }

@@ -1,9 +1,9 @@
 package main.java.com.solvd.laba;
 
+import main.java.com.solvd.laba.interfaces.IAttendable;
 import java.util.*;
 
-
-public class StudentZ extends Person implements IAttendable  {
+public class StudentZ extends Person implements IAttendable {
     private Degree degree;
     private Map<SubjectZ, Double> subjectsGrades = new HashMap<SubjectZ, Double>();
     private List<SubjectZ> subjects = new ArrayList<>();
@@ -51,6 +51,10 @@ public class StudentZ extends Person implements IAttendable  {
         result = 31* result + getName().hashCode();
         result = 31* result + getDegree().hashCode();
         return result;
+    }
+
+    public List<SubjectZ> getSubjects() {
+        return subjects;
     }
 
     public Degree getDegree() {

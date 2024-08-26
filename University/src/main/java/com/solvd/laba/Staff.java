@@ -1,6 +1,9 @@
 package main.java.com.solvd.laba;
 
-public class Staff extends Person implements IPayable, IAttendable{
+import main.java.com.solvd.laba.interfaces.IAttendable;
+import main.java.com.solvd.laba.interfaces.IPayable;
+
+public class Staff extends Person implements IPayable, IAttendable {
     private String workArea;
     private int attendanceCount = 0;
 
