@@ -1,0 +1,18 @@
+Professor: Juan Perez, specialization: Mathematics, subject: SubjectZ: Calculus, ID: PR0001
+Professor: Pepe Rodriguez, specialization: Mathematics, subject: SubjectZ: Algebra, ID: PR0002
+
+--- Unique Words ---
+algebra,
+calculus,
+id:
+juan
+mathematics,
+pepe
+perez,
+pr0001
+pr0002
+professor:
+rodriguez,
+specialization:
+subject:
+subjectz:
