@@ -1,4 +1,20 @@
 # SOLV-LABA PROJECTS 
+## JAXB Implementation
+I added JAXB annotations to the classes Library, Staff, and Book, covering both Date and List types. 
+I also created two new classes:
++ JaxB, where I added methods for unmarshalling and marshalling.
++ DataAdapter, which provides an adapter to instruct JAXB on how to handle a specific type.
+
+## XML Validation and Parsing 
+For this task I made the following updates to the project:
+
++ Created XML and XSD files:
+university.xml, represent data from the classes of the University hierarchy.
+university.xsd,  define the structure and data types for validating the XML file.
+
++ Implemented XML validation with SAX:
+Added a class XMLValidatorWithSAX that uses the SAX parser to validate the university.xml file against the university.xsd schema, this checks the XML for structural correctness according to the schema.
+
 ## DAO Implementation
 I added two packages:
 
@@ -20,15 +36,7 @@ Package mysql: Provides concrete implementations of data access using MySQL and 
 
 Service Layer: The service layer is implemented in the service package, and the StudentServiceImpl, ProfessorServiceImpl, and SubjectServiceImpl classes provide the implementations.
 
-## XML Validation and Parsing 
-For this task I made the following updates to the project:
 
-+ Created XML and XSD files:
-university.xml, represent data from the classes of the University hierarchy.
-university.xsd,  define the structure and data types for validating the XML file.
-
-+ Implemented XML validation with SAX:
-Added a class XMLValidatorWithSAX that uses the SAX parser to validate the university.xml file against the university.xsd schema, this checks the XML for structural correctness according to the schema.
 
 
 
