@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<staff personID="1">
+    <name>Roberto Gomez</name>
+    <age>34</age>
+    <address>Address 001</address>
+    <phoneNumb>2222-03465</phoneNumb>
+    <workArea>ADMINISTRATIVE</workArea>
+</staff>
