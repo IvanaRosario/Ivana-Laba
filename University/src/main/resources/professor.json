@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "name": "Juan Perez",
+  "age": 38,
+  "address": "Street 456",
+  "phoneNumber": "143254612",
+  "department": "Mathematics",
+  "subject":  {"name":"Algebra"},
+  "category": "HEAD_OF_PRACTICAL_WORK"
+}

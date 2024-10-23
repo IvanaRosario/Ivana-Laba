@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "name": "Melina Molina",
+  "age": 26,
+  "address": "Address 123",
+  "phoneNumber": "123456789",
+  "degreeID": 1,
+  "subjects": [
+    {"name": "Algebra"},
+    {"name": "Calculus"},
+    {"name": "Chemistry"},
+    {"name": "Physics"}
+  ]
+}

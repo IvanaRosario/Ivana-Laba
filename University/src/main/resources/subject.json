@@ -1,0 +1,13 @@
+{
+      "id": 1,
+      "name": "Algebra",
+
+      "professors": [
+        {"name":  "Juan Perez"},
+        {"name":  "John Wick"}
+      ],
+      "students": [
+        {"name":  "Melina Molina"},
+        {"name":  "Juana Mendoza"}
+      ]
+}
