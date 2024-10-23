@@ -1,4 +1,8 @@
 # SOLV-LABA PROJECTS 
+## JSON Implementation
+Parsing multiple JSON files with Jackson in a Java application. The following JSON files were created in the resources folder to represent different entities of the class hierarchy: student.json, professor.json, subject.json, degree.json, book.json
+To handle the parsing of these JSON files, a new JsonParser class was implemented, which is responsible for reading and deserializing the JSON data into Java objects using Jackson annotations and features. Complex data types such as dates and lists were handled using the appropriate Jackson annotations.
+
 ## JAXB Implementation
 I added JAXB annotations to the classes Library, Staff, and Book, covering both Date and List types. 
 I also created two new classes:
